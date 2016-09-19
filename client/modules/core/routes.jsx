@@ -1,18 +1,34 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import {mount} from 'react-mounter';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
-import MainLayout from './components/main_layout.jsx';
-import Home from './components/home.jsx';
+import Test from './containers/test';
 
-export default function (injectDeps, {FlowRouter}) {
-  const MainLayoutCtx = injectDeps(MainLayout);
+export default function (injectDeps, {LocalState}) {
+  const MainLayoutCtx = injectDeps(Test);
 
-  FlowRouter.route('/', {
-    name: 'home',
-    action() {
-      mount(MainLayoutCtx, {
-        content: () => (<Home />)
-      });
+  ReactDOM.render(
+      <Router history={browserHistory}>
+        <Route path="/test" component={MainLayoutCtx}>
+          <IndexRoute component={Test}/>
+        </Route>
+      </Router>
+      ,
+      getRootNode('root')
+  );
+}
+
+function getRootNode(rootId) {
+    const rootNode = document.getElementById(rootId);
+
+    if (rootNode) {
+        return rootNode;
     }
-  });
+
+    const rootNodeHtml = '<div id="' + rootId + '"></div>';
+    const body = document.getElementsByTagName('body')[0];
+    body.insertAdjacentHTML('beforeend', rootNodeHtml);
+
+    return document.getElementById(rootId);
 }
