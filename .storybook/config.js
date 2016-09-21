@@ -1,13 +1,10 @@
-import { configure, setAddon, addDecorator } from '@kadira/storybook';
-import { disable } from 'react-komposer';
-
-disable();
+import { configure } from '@kadira/storybook';
 
 function loadStories() {
-  require('..\client\modules\auth\components\.stories\index.js');
-  require('..\client\modules\layout\components\.stories\index.js');
-  // require as many as stories you need.
-  require('../client/modules/core/components/.stories/index.js');
+  require('../.stories');
+  require('../client/modules/core/components/.stories');
+  require('../client/modules/auth/components/.stories');
+  require('../client/modules/layout/components/.stories');
 }
 
 configure(loadStories, module);
