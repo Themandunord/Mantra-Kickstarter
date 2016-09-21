@@ -14,7 +14,7 @@ export default function (injectDeps, {LocalState}) {
 
   ReactDOM.render(
       <Router history={browserHistory}>
-        <Route path="/test" component={Default_LayoutCtx}>
+        <Route path="/" component={Default_LayoutCtx}>
           <IndexRoute component={Test}/>
         </Route>
       </Router>
