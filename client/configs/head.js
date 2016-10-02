@@ -49,7 +49,7 @@ export default function () {
 
     DocHead.addMeta({
         name: "apple-mobile-web-app-title",
-        content: "Picturals"
+        content: "Mantra - Kickstarter"
     });
 
     /* FAVICON */
