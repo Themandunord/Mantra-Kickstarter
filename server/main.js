@@ -3,3 +3,8 @@ import methods from './methods';
 
 publications();
 methods();
+
+// Injec Loader's html before script was loaded
+if (Meteor.isServer) {
+    Inject.rawHead("loader", Assets.getText('loader/loader.html'));
+}
