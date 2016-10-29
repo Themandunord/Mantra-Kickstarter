@@ -1,22 +1,22 @@
 export default {
     signup({Meteor, LocalState, browserHistory, Accounts}, firstName, lastName, email, password, passwordConfirm) {
         if (!email) {
-            return LocalState.set('SIGNUP_ERROR', 'email is required');
+            return LocalState.set('SIGNUP_ERROR', 'L\'adresse email est requise');
         }
         if (!firstName) {
-            return LocalState.set('SIGNUP_ERROR', 'firstname is required');
+            return LocalState.set('SIGNUP_ERROR', 'Le prénom est requis');
         }
         if (!lastName) {
-            return LocalState.set('SIGNUP_ERROR', 'lastname is required');
+            return LocalState.set('SIGNUP_ERROR', 'Le nom est requis');
         }
         if (!password) {
-            return LocalState.set('SIGNUP_ERROR', 'password1 is required');
+            return LocalState.set('SIGNUP_ERROR', 'Le mot de passe est requis');
         }
         if (!passwordConfirm) {
-            return LocalState.set('SIGNUP_ERROR', 'password2 is required');
+            return LocalState.set('SIGNUP_ERROR', 'La confirmation du mot de passe es requise');
         }
         if (password !== passwordConfirm) {
-            return LocalState.set('SIGNUP_ERROR', 'password are required to match');
+            return LocalState.set('SIGNUP_ERROR', 'Les mots de passe ne correspondent pas');
         }
 
         LocalState.set('SIGNUP_ERROR', null);

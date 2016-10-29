@@ -9,6 +9,10 @@ export const composer = ({context}, onData) => {
   console.log(error)
 
   onData(null, {});
+
+  const cleanup = () => {
+    clearErrors('SIGNUP_ERROR');
+  };
 };
 
 export const depsMapper = (context, actions) => ({
