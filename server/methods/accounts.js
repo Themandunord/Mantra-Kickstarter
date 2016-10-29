@@ -39,14 +39,10 @@ export default function () {
       }
     },
     'deleteUser'(){
-      if(Meteor.userId()){
-        const userId = Meteor.userId()
+      if(this.userId){
+        const userId = this.userId;
         console.log('Remove user ' + userId);
-        Meteor.users.remove({_id : userId})
-        Likes.remove({user_id : userId});
-        Follows.remove({follower_user_id : userId});
-        Follows.remove({following_user_id : userId});
-        Artworks.remove({author : userId});
+        Meteor.users.remove({_id : this.userId})
       }
     }
   });
