@@ -24,6 +24,7 @@
     "react-router": "^2.8.1",
     "react-simple-di": "^1.0.1",
     "react-validation": "^2.10.8",
+    "string": "^3.3.3",
     "validator": "^6.1.0"
   },
   "devDependencies": {
