@@ -27,7 +27,7 @@ export default {
                 return LocalState.set('SIGNUP_ERROR', err.reason);
             }
 
-            Meteor.call('emails.sendAccountVerificationLink', (err) => {
+            Meteor.call('account.sendVerificationEmail', (err) => {
                 if (err && err.reason) {
                     return LocalState.set('SIGNUP_ERROR', err.reason);
                 }

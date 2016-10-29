@@ -26,8 +26,28 @@ export default function () {
   });
 
   Meteor.methods({
-    'accounts.sample'() {
+    'account_creation.checkEmailExist'(email) {
+      const _email = email.toLowerCase();
+      return Meteor.users.find({"emails.address": _email}, {limit: 1}).count() > 0
 
+      //return Accounts.findUserByEmail(email);
+    },
+    'account.sendVerificationEmail'(){
+      if (this.userId) {
+        Accounts.sendVerificationEmail(this.userId);
+        console.log('Email sended ' + Meteor.user().emails[0].address)
+      }
+    },
+    'deleteUser'(){
+      if(Meteor.userId()){
+        const userId = Meteor.userId()
+        console.log('Remove user ' + userId);
+        Meteor.users.remove({_id : userId})
+        Likes.remove({user_id : userId});
+        Follows.remove({follower_user_id : userId});
+        Follows.remove({following_user_id : userId});
+        Artworks.remove({author : userId});
+      }
     }
   });
 }
