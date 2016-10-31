@@ -12,7 +12,6 @@ class SignUp extends React.Component {
         event.preventDefault();
         const {signup} = this.props;
 
-        console.log(this.form.components.email)
         const email = this.form.components.email.state.value;
         const firstname = this.form.components.firstname.state.value;
         const lastname = this.form.components.lastname.state.value;

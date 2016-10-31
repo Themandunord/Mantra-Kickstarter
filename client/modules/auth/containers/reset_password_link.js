@@ -1,14 +1,14 @@
 import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
 
-import SignUp from '../components/sign_up.jsx';
+import ResetPasswordLink from '../components/reset_password_link.jsx';
 
-export const composer = ({context, clearErrors }, onData) => {
+export const composer = ({context, clearErrors}, onData) => {
   const { LocalState } = context();
 
   onData(null, {});
 
   const cleanup = () => {
-    clearErrors('SIGNUP_ERROR');
+    clearErrors('RESET_PASSWORD_ERROR');
   };
 
   return cleanup;
@@ -16,11 +16,11 @@ export const composer = ({context, clearErrors }, onData) => {
 
 export const depsMapper = (context, actions) => ({
   clearErrors : actions.accounts.clearErrors,
-  signup: actions.accounts.signup,
+  sendResetPasswordLink : actions.accounts.sendResetPasswordLink,
   context: () => context
 });
 
 export default composeAll(
   composeWithTracker(composer),
   useDeps(depsMapper)
-)(SignUp);
+)(ResetPasswordLink);

@@ -10,6 +10,9 @@ import OnePageLayout from '/client/modules/layout/containers/one_page_layout';
 /* Containers */
 import Test from './containers/test';
 import SignUp from '/client/modules/auth/containers/sign_up';
+import SignIn from '/client/modules/auth/containers/sign_in';
+import ResetPasswordLink from '/client/modules/auth/containers/reset_password_link';
+import ResetPassword from '/client/modules/auth/containers/reset_password';
 
 export default function (injectDeps, {LocalState}) {
   const Default_LayoutCtx = injectDeps(Default_Layout);
@@ -18,7 +21,11 @@ export default function (injectDeps, {LocalState}) {
   ReactDOM.render(
       <Router history={browserHistory}>
         <Route path="/" component={OnePageLayoutCtx}>
-          <IndexRoute component={SignUp}/>
+          <Route path="sign-up" component={SignUp}/>
+          <Route path="sign-in" component={SignIn}/>
+          <Route path="reset-password-link" component={ResetPasswordLink}/>
+          <Route path="reset-password/:token" component={ResetPassword}/>
+          <IndexRoute component={Test}/>
         </Route>
       </Router>
       ,

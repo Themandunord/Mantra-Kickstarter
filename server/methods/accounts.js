@@ -32,10 +32,25 @@ export default function () {
 
       //return Accounts.findUserByEmail(email);
     },
-    'account.sendVerificationEmail'(){
+    'accounts.sendVerificationEmail'(){
       if (this.userId) {
         Accounts.sendVerificationEmail(this.userId);
         console.log('Email sended ' + Meteor.user().emails[0].address)
+      }
+    },
+    'accounts.sendResetPasswordLink'(email) {
+      check(email, String);
+      const userId = Accounts.findUserByEmail(email);
+      // Demo the latency compensation (Delete this in production)
+      //Meteor._sleepForMs(500);
+      if (!userId) {
+        throw new Meteor.Error(
+          'sendResetPasswordLink.RESET_PASSWORD_ERROR',
+          `User account with the address: ${email} not found. Please try again.`,
+          'no user found'
+        );
+      } else if (userId) {
+        return Accounts.sendResetPasswordEmail(userId);
       }
     },
     'deleteUser'(){

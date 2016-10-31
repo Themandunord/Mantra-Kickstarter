@@ -1,6 +1,7 @@
 import {createApp} from 'mantra-core';
 import initContext from './configs/context';
 import head from './configs/head'
+import bert from './configs/bert'
 
 // modules
 import coreModule from './modules/core';
@@ -11,6 +12,7 @@ import authModule from './modules/auth';
 const context = initContext();
 
 head();
+bert();
 
 // create app
 const app = createApp(context);
@@ -23,7 +25,7 @@ app.init();
 if (Meteor.isClient) {
     Meteor.startup(function() {
         setTimeout(function() {
-            $("#inject-loader-wrapper").fadeOut(500, function() { $(this).remove(); });
+            $("#inject-loader-wrapper").fadeOut(200, function() { $(this).remove(); });
         }, 500);
     });
 }
