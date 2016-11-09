@@ -55,10 +55,10 @@ export default {
     resendVerificationEmail({ Meteor, LocalState }) {
       Meteor.call('accounts.sendVerificationEmail', (err) => {
         if (err && err.reason) {
-          return LocalState.set('RESEND_EMAIL_ERROR', err.reason);
+          return LocalState.set('VERIFY_EMAIL_ERROR', err.reason);
         }
       });
-      LocalState.set('RESEND_EMAIL_ERROR', null);
+      LocalState.set('VERIFY_EMAIL_ERROR', null);
     },
 
     sendResetPasswordLink({ Meteor, LocalState, browserHistory }, email) {
@@ -99,6 +99,17 @@ export default {
           browserHistory.push('/');
         }
       });
+    },
+
+    verifyEmail({Accounts, LocalState, browserHistory}, token){
+        Accounts.verifyEmail(token, function (error) {
+            if (error) {
+                LocalState.set('VERIFY_EMAIL_ERROR', 'Aucun compte ne peut être validé');
+            }
+            LocalState.set('VERIFY_EMAIL_ERROR', null);
+            Bert.alert('Votre adresse mail est validée.');
+            browserHistory.replace('/');
+        });
     },
 
     clearErrors({LocalState}, errorState) {

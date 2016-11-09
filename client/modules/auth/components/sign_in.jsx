@@ -2,7 +2,6 @@ import React from 'react';
 import {Form, Input, Button} from 'react-validation/lib/build/validation.rc';
 
 import BertError from '/client/modules/core/containers/bert_error'
-import BertSuccess from '/client/modules/core/containers/bert_success'
 
 class SignIn extends React.Component {
   constructor(props) {

@@ -1,6 +1,8 @@
 import React from 'react';
 import {Form, Input, Button} from 'react-validation/lib/build/validation.rc';
 
+import BertError from '/client/modules/core/containers/bert_error'
+
 class SignUp extends React.Component {
     constructor(props) {
         super(props);
@@ -26,6 +28,7 @@ class SignUp extends React.Component {
 
         return (
             <div>
+                <BertError error="SIGNUP_ERROR"/>
                 <h3>SignUp</h3>
                 <Form onSubmit={this.handleSubmit} ref={f => _this.form = f}>
                     <Input errorClassName='is-invalid-input' type="text" containerClassName='' value='' name='firstname'

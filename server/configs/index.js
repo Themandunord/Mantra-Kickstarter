@@ -3,7 +3,9 @@
  */
 
 import userCollection from './user_collection';
+import accounts from './accounts';
 
 export default function(){
     userCollection();
+    accounts();
 }

@@ -13,24 +13,27 @@ import SignUp from '/client/modules/auth/containers/sign_up';
 import SignIn from '/client/modules/auth/containers/sign_in';
 import ResetPasswordLink from '/client/modules/auth/containers/reset_password_link';
 import ResetPassword from '/client/modules/auth/containers/reset_password';
+import VerifyEmail from '/client/modules/auth/containers/verify_email';
 
 export default function (injectDeps, {LocalState}) {
-  const Default_LayoutCtx = injectDeps(Default_Layout);
-  const OnePageLayoutCtx = injectDeps(OnePageLayout);
+    const Default_LayoutCtx = injectDeps(Default_Layout);
+    const OnePageLayoutCtx = injectDeps(OnePageLayout);
 
-  ReactDOM.render(
-      <Router history={browserHistory}>
-        <Route path="/" component={OnePageLayoutCtx}>
-          <Route path="sign-up" component={SignUp}/>
-          <Route path="sign-in" component={SignIn}/>
-          <Route path="reset-password-link" component={ResetPasswordLink}/>
-          <Route path="reset-password/:token" component={ResetPassword}/>
-          <IndexRoute component={Test}/>
-        </Route>
-      </Router>
-      ,
-      getRootNode('root')
-  );
+    ReactDOM.render(
+        <Router history={browserHistory}>
+            <Route path="/" component={OnePageLayoutCtx}>
+                <Route path="sign-up" component={SignUp}/>
+                <Route path="sign-in" component={SignIn}/>
+                <Route path="reset-password-link" component={ResetPasswordLink}/>
+                <Route path="reset-password/:token" component={ResetPassword}/>
+                <Route path="verify-email" component={VerifyEmail}/>
+                <Route path="verify-email/:token" component={VerifyEmail}/>
+                <IndexRoute component={Test}/>
+            </Route>
+        </Router>
+        ,
+        getRootNode('root')
+    );
 }
 
 function getRootNode(rootId) {
