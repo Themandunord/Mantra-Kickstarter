@@ -5,10 +5,12 @@ import VerifyEmail from '../components/verify_email.jsx';
 export const composer = ({context, verifyEmail, clearErrors, params}, onData) => {
   const {token} = params;
 
-  if(token)
+  if(token){
     verifyEmail(token);
-
-  onData(null, {});
+  }
+  else{
+    onData(null, {});
+  }
 
   const cleanup = () => {
     clearErrors('VERIFY_EMAIL_ERROR');
