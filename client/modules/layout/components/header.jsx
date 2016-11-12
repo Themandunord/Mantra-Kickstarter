@@ -11,11 +11,11 @@ class Header extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="three columns">
+          <div className="two columns">
             <h2><strong>Picturals</strong></h2>
           </div>
 
-          <div className="nine columns">
+          <div className="ten columns">
             <HeaderWidget />
           </div>
         </div>
