@@ -36,7 +36,7 @@ class SignIn extends React.Component {
                          type='password'
                          placeholder="Mot de passe"
                          validations={['required']}/>
-                  <Button type="submit">Se connecter</Button>
+                  <Button className="button-primary" type="submit">Se connecter</Button>
               </Form>
           </div>
       );

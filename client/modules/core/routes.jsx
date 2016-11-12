@@ -21,7 +21,7 @@ export default function (injectDeps, {LocalState}) {
 
     ReactDOM.render(
         <Router history={browserHistory}>
-            <Route path="/" component={OnePageLayoutCtx}>
+            <Route path="/" component={Default_LayoutCtx}>
                 <Route path="sign-up" component={SignUp}/>
                 <Route path="sign-in" component={SignIn}/>
                 <Route path="reset-password-link" component={ResetPasswordLink}/>

@@ -31,27 +31,51 @@ class SignUp extends React.Component {
                 <BertError error="SIGNUP_ERROR"/>
                 <h3>SignUp</h3>
                 <Form onSubmit={this.handleSubmit} ref={f => _this.form = f}>
-                    <Input errorClassName='is-invalid-input' type="text" containerClassName='' value='' name='firstname'
-                           placeholder="Prénom"
-                           validations={['required','isName']}/>
-                    <Input errorClassName='is-invalid-input' type="text" containerClassName='' value='' name='lastname'
-                           placeholder="Nom"
-                           validations={['required','isName']}/>
+                    <div className="row">
+                        <div className="six columns">
+                            <Input errorClassName='is-invalid-input' type="text" containerClassName='' value=''
+                                   name='firstname'
+                                   placeholder="Prénom"
+                                   className="u-full-width"
+                                   validations={['required','isName']}/>
+                        </div>
+                        <div className="six columns">
+                            <Input errorClassName='is-invalid-input' type="text" containerClassName='' value=''
+                                   name='lastname'
+                                   placeholder="Nom"
+                                   className="u-full-width"
+                                   validations={['required','isName']}/>
+                        </div>
+                    </div>
+
                     <Input errorClassName='is-invalid-input' containerClassName='' value='' name='email'
                            type='email'
+                           className="u-full-width"
                            placeholder="Adresse de messagerie"
                            validations={['required', 'email']}/>
-                    <Input errorClassName='is-invalid-input' containerClassName='' value='' name='password'
-                           type='password'
-                           placeholder="Mot de passe"
-                           validations={['required', 'password']}/>
-                    <Input errorClassName='is-invalid-input' containerClassName='' value='' name='passwordConfirm'
-                           type='password'
-                           placeholder="Confirmation du mot de passe"
-                           validations={['required', 'password']}/>
-                    <Button type="submit"> S'enregistrer</Button>
+
+                    <div className="row">
+                        <div className="six columns">
+                            <Input errorClassName='is-invalid-input' containerClassName=''
+                                   value='' name='password'
+                                   type='password'
+                                   className="u-full-width"
+                                   placeholder="Mot de passe"
+                                   validations={['required', 'password']}/></div>
+                        <div className="six columns">
+                            <Input errorClassName='is-invalid-input' containerClassName='' value=''
+                                   name='passwordConfirm'
+                                   type='password'
+                                   className="u-full-width"
+                                   placeholder="Confirmation du mot de passe"
+                                   validations={['required', 'password']}/>
+                        </div>
+                    </div>
+
+
+                    <Button className="button-primary" type="submit"> S'enregistrer</Button>
                 </Form>
-            </div>
+            </div >
         );
     }
 }
