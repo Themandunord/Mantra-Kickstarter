@@ -15,6 +15,8 @@ import ResetPasswordLink from '/client/modules/auth/containers/reset_password_li
 import ResetPassword from '/client/modules/auth/containers/reset_password';
 import VerifyEmail from '/client/modules/auth/containers/verify_email';
 
+import Artists from '/client/modules/common/containers/artists';
+
 export default function (injectDeps, {LocalState}) {
     const Default_LayoutCtx = injectDeps(Default_Layout);
     const OnePageLayoutCtx = injectDeps(OnePageLayout);
@@ -28,7 +30,7 @@ export default function (injectDeps, {LocalState}) {
                 <Route path="reset-password/:token" component={ResetPassword}/>
                 <Route path="verify-email" component={VerifyEmail}/>
                 <Route path="verify-email/:token" component={VerifyEmail}/>
-                <IndexRoute component={Test}/>
+                <IndexRoute component={Artists}/>
             </Route>
         </Router>
         ,

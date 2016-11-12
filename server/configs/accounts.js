@@ -61,12 +61,14 @@ export default function(){
         const count = Meteor.users.find({'username': pattern}).count();
         user.username = username + ((count > 0)? '.' + count : '');
 
-        // Custom data.
-        // There are not auto publish by meteor
-        user.data = {
+        user.profile = {
             firstName : options.firstName,
             lastName: options.lastName
         };
+
+        // Custom data.
+        // There are not auto publish by meteor
+        user.data = {}
 
         // Returns the user object
         return user;

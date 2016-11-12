@@ -7,6 +7,8 @@ import bert from './configs/bert'
 import coreModule from './modules/core';
 import layoutModule from './modules/layout';
 import authModule from './modules/auth';
+import commonModule from './modules/common';
+
 
 // init context
 const context = initContext();
@@ -19,6 +21,8 @@ const app = createApp(context);
 app.loadModule(coreModule);
 app.loadModule(layoutModule);
 app.loadModule(authModule);
+app.loadModule(commonModule);
+
 app.init();
 
 // Remove the loading spinner when the user have loaded all the scripts

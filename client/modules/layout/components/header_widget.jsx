@@ -26,8 +26,6 @@ class HeaderWidget extends React.Component {
 
         return (
             <div className="u-pull-right header-widget">
-                <Link className="button" to="#">Search</Link>
-                <Link className="button" to="#">Notifications</Link>
                 {userDiv}
             </div>
         );

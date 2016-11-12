@@ -12,7 +12,7 @@ class Header extends React.Component {
       <div className="container">
         <div className="row">
           <div className="two columns">
-            <h2><strong>Picturals</strong></h2>
+            <h2><strong>WebsiteTitle</strong></h2>
           </div>
 
           <div className="ten columns">
