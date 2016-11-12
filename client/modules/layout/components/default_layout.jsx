@@ -1,17 +1,23 @@
 import React from 'react';
 
-class DefaultLayout extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+import Header from '/client/modules/layout/containers/header';
 
-  render() {
-    return (
-      <div className="container">
-        {this.props.children}
-      </div>
-    );
-  }
+class DefaultLayout extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <div>
+                <Header />
+                <div className="container">
+                    {this.props.children}
+                </div>
+            </div>
+
+        );
+    }
 }
 
 export default DefaultLayout;
