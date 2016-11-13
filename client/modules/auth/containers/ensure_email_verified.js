@@ -5,7 +5,7 @@ import EnsureEmailVerified from '../components/ensure_email_verified.jsx';
 export const composer = ({context}, onData) => {
     const {Meteor, browserHistory} = context();
 
-    if (Meteor.user() && !Meteor.user().emails[0].verified) {
+    if (location.pathname !== "/verify-email" && Meteor.user() && !Meteor.user().emails[0].verified) {
         browserHistory.push('/verify-email')
     } else {
         onData(null, {});

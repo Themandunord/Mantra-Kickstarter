@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from '/client/modules/layout/containers/header';
+import EnsureEmailVerified from '/client/modules/auth/containers/ensure_email_verified';
 
 class DefaultLayout extends React.Component {
     constructor(props) {
@@ -9,12 +10,12 @@ class DefaultLayout extends React.Component {
 
     render() {
         return (
-            <div>
+            <EnsureEmailVerified>
                 <Header />
                 <div className="container">
                     {this.props.children}
                 </div>
-            </div>
+            </EnsureEmailVerified>
 
         );
     }
