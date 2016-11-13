@@ -7,8 +7,9 @@ export default function () {
       fields : {
         'username' : 1,
         'profile' : 1
-      }
-    }).limit(20);
+      },
+      limit : 20
+    });
   });
 
   Meteor.publish('users.one', function (userId) {
